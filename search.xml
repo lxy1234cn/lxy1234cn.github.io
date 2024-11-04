@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>在C#中通过url获取页面HTML文档</title>
+      <link href="/2024/11/04/%E5%9C%A8C-%E4%B8%AD%E9%80%9A%E8%BF%87url%E8%8E%B7%E5%8F%96%E9%A1%B5%E9%9D%A2HTML%E6%96%87%E6%A1%A3/"/>
+      <url>/2024/11/04/%E5%9C%A8C-%E4%B8%AD%E9%80%9A%E8%BF%87url%E8%8E%B7%E5%8F%96%E9%A1%B5%E9%9D%A2HTML%E6%96%87%E6%A1%A3/</url>
+      
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style><h2 id="这个简单直接上代码"><a href="#这个简单直接上代码" class="headerlink" title="这个简单直接上代码:"></a>这个简单直接上代码:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Net.Http;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">class Program</span><br><span class="line">&#123;</span><br><span class="line">    static async Task Main()</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(&quot;输入url地址：&quot;);</span><br><span class="line">        string url = Console.ReadLine(); </span><br><span class="line">        using (HttpClient client = new HttpClient())</span><br><span class="line">        &#123;</span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                HttpResponseMessage response = await client.GetAsync(url);</span><br><span class="line">                string content = await response.Content.ReadAsStringAsync();</span><br><span class="line">                Console.WriteLine(content);</span><br><span class="line">            &#125;</span><br><span class="line">            catch (HttpRequestException HRex)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(&quot;请求失败： &quot; + HRex.Message);</span><br><span class="line">            &#125;</span><br><span class="line">            catch (Exception ex) </span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(&quot;请求失败：&quot; + ex.Message);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        Console.ReadLine(); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="你猜的没错，这篇就是凑数的"><a href="#你猜的没错，这篇就是凑数的" class="headerlink" title="你猜的没错，这篇就是凑数的"></a>你猜的没错，这篇就是凑数的</h4>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基于C#的简单远程注册功能实现</title>
       <link href="/2024/11/04/%E5%9F%BA%E4%BA%8EC-%E7%9A%84%E7%AE%80%E5%8D%95%E8%BF%9C%E7%A8%8B%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/"/>
       <url>/2024/11/04/%E5%9F%BA%E4%BA%8EC-%E7%9A%84%E7%AE%80%E5%8D%95%E8%BF%9C%E7%A8%8B%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/</url>
