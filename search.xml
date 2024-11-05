@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>粘包半包的解决方法</title>
+      <link href="/2024/11/05/%E7%B2%98%E5%8C%85%E5%8D%8A%E5%8C%85%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+      <url>/2024/11/05/%E7%B2%98%E5%8C%85%E5%8D%8A%E5%8C%85%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style><h3 id="什么是粘包？"><a href="#什么是粘包？" class="headerlink" title="什么是粘包？"></a>什么是粘包？</h3><pre><code> 是指如果当发送端快速发送多条数据，但是接收端没有及时调用Receive，那么数据会在接收端的缓存中积累。</code></pre><p>例如：当发送端先发送“1，2，3，4”四个字节，紧接着又发送“5，6，7，8”四个字节的数据；等到接收端调用Receive的<br>时候，接收端的操作系统已经将接收到的全部数据写入缓存区，共接收到“8”个字节。</p><h3 id="什么是半包？"><a href="#什么是半包？" class="headerlink" title="什么是半包？"></a>什么是半包？</h3><pre><code> 也就是当发送端发送的数据太长了，但是接收端的缓存区没有足够的空间接收全部数据，就会接收一部分数据，另一</code></pre><p>部分等下一次调用Receive的时候在接收。<br>例如：发送端发送：asdfghjkl，但是接收端只剩下三个字节的空间，此时接收端接收“asd”，等到下一次调用Receive时再<br>接收fghjkl。</p><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="一-长度信息法："><a href="#一-长度信息法：" class="headerlink" title="一.长度信息法："></a>一.长度信息法：</h4><pre><code> 在每一个数据包前面加上长度信息，每次接收到数据包后先读取表示长度的字节，如果缓存区的数据长度大于要取的字</code></pre><p>节数，则取出相应的字节，否则等待下一次数据接收。</p><h4 id="二-固定长度法："><a href="#二-固定长度法：" class="headerlink" title="二.固定长度法："></a>二.固定长度法：</h4><pre><code> 每次都以固定的长度发送数据，若大小 “小于” 固定长度，则可以填入一些事先约定的符合占位凑数。</code></pre><h4 id="三-结束符号法："><a href="#三-结束符号法：" class="headerlink" title="三.结束符号法："></a>三.结束符号法：</h4><pre><code> 规定一个结束符号，作为消息间的分隔符；将每次接收到的消息字节，通过结束符分开。</code></pre><p>例如：规定一个结束符为“$” ；若接收到一条消息字节为“Helloworld$Iam”,则接收端先处理数据“Helloworld”，保留“Iam”<br>等到下一个“$”出现，将“Iam”和下一个“$”之间的数据粘在一起，作为一条完整的消息。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在C#中操作SQLserver数据库</title>
       <link href="/2024/11/04/%E5%9C%A8C-%E4%B8%AD%E6%93%8D%E4%BD%9CSQLserver%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
       <url>/2024/11/04/%E5%9C%A8C-%E4%B8%AD%E6%93%8D%E4%BD%9CSQLserver%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
