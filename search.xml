@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>数据结构笔记</title>
+      <link href="/2024/12/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/"/>
+      <url>/2024/12/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style><p>目录：<br>第1章 绪论</p><p>1.1 什么是数据结构<br>1.1.1 数据结构的定义<br>1.1.2 逻辑结构<br>1.1.3 存储结构<br>1.1.4 数据运算<br>1.1.5 数据类型和抽象数据类型<br>1.2 算法及其描述<br>1.2.1 什么是算法<br>1.2.2 算法设计的目标<br>1.2.3 算法描述<br>1.3 算法分析<br>1.3.1 算法分析概述<br>1.3.2 算法时间性能分析<br>1.3.3 算法空间性能分析<br>1.4 数据结构+算法&#x3D;程序<br>1.4.1 程序和数据结构<br>1.4.2 算法和程序<br>1.4.3 算法和数据结构<br>1.4.4 数据结构的发展<br>第2章 线性表</p><p>2.1 线性表及其逻辑结构<br>2.2 线性表的顺序存储结构<br>2.3 线性表的链式存储结构<br>2.4 线性表的应用<br>第3章 栈和队列</p><p>3.1 栈<br>3.2 队列<br>第4章 串</p><p>4.1 串的概念与模式匹配算法<br>第5章 递归</p><p>5.1 递归算法的设计方法<br>第6章 数组和广义表</p><p>6.1 数组<br>6.2 稀疏矩阵<br>6.3 广义表<br>第7章 树和二叉树</p><p>7.1 树<br>7.2 二叉树<br>7.3 树和森林<br>第8章 图</p><p>8.1 图的概念<br>8.2 图的存储结构<br>8.3 图的遍历<br>8.4 图的特殊应用<br>第9章 查找</p><p>9.1 查找算法的实现<br>第10章 内排序</p><p>10.1 内排序算法的实现<br>第11章 外排序</p><p>11.1 外排序算法的实现</p><p>下载链接：<a href="https://www.hostize.com/zh/v/ssWxJPtpmI">https://www.hostize.com/zh/v/ssWxJPtpmI</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 文件下载 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>发现一个不错的使用前端的AIV0.dev</title>
       <link href="/2024/11/29/%E5%8F%91%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%B8%8D%E9%94%99%E7%9A%84%E4%BD%BF%E7%94%A8%E5%89%8D%E7%AB%AF%E7%9A%84AIV0-dev/"/>
       <url>/2024/11/29/%E5%8F%91%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%B8%8D%E9%94%99%E7%9A%84%E4%BD%BF%E7%94%A8%E5%89%8D%E7%AB%AF%E7%9A%84AIV0-dev/</url>
