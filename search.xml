@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>什么是AspNetCore 及现在的AspNetCore怎么样</title>
+      <link href="/2025/06/17/%E4%BB%80%E4%B9%88%E6%98%AFAspNetCore-%E5%8F%8A%E7%8E%B0%E5%9C%A8%E7%9A%84AspNetCore%E6%80%8E%E4%B9%88%E6%A0%B7/"/>
+      <url>/2025/06/17/%E4%BB%80%E4%B9%88%E6%98%AFAspNetCore-%E5%8F%8A%E7%8E%B0%E5%9C%A8%E7%9A%84AspNetCore%E6%80%8E%E4%B9%88%E6%A0%B7/</url>
+      
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style><h1 id="什么是AspNetCore？"><a href="#什么是AspNetCore？" class="headerlink" title="什么是AspNetCore？"></a>什么是AspNetCore？</h1><p>我知道，一提起“.NET开发Web应用”，很多人脑子里还是那个画面：Visual Studio 装在 Windows 上，代码最终部署在<br> IIS 服务器里，整个生态牢牢绑在微软的平台上。这印象没错——但那已经是 2014 年开源之前的 ASP.NET (Framework) 了。<br>但是在 2016 年，微软迈出了关键一步：开源并发布了 ASP.NET Core。这不是小修小补，而是一次彻底的、面向云原生<br>时代的重构。是最核心的改变之一，也是很多人至今还不知道的：</p><h1 id="ASP-NET-Core：别误会，它早就不是“Windows专属”了"><a href="#ASP-NET-Core：别误会，它早就不是“Windows专属”了" class="headerlink" title="ASP.NET Core：别误会，它早就不是“Windows专属”了"></a>ASP.NET Core：别误会，它早就不是“Windows专属”了</h1><p><strong>ASP.NET Core 是一个成熟的跨平台框架。</strong></p><h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><ul><li>你可以在 <strong>Windows</strong> 上写代码</li><li>同样可以在 <strong>macOS</strong> 上用 Visual Studio for Mac 或 VS Code + C# Dev Kit 开发</li><li>在 <strong>Linux</strong> (Ubuntu, Fedora 等) 上用 VS Code 写</li><li>编辑器自由度高</li></ul><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><ul><li>编译好的应用可以在 <strong>Windows 服务器</strong>运行</li><li>更重要的是：能直接跑在 <strong>Linux 服务器</strong>上 (Nginx&#x2F;Apache 后或独立)</li><li>也能跑在 <strong>macOS</strong> 上</li><li>不再强制依赖 IIS</li></ul><h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><ul><li>塞进轻量级 <strong>Docker 容器</strong> (Linux&#x2F;Windows Nano Server 镜像)</li><li>部署到任意支持容器的平台：<ul><li>Azure Kubernetes Service (AKS)</li><li>AWS ECS&#x2F;EKS</li><li>Google GKE</li><li>自建 Linux 服务器集群</li></ul></li><li>部署环境选择权完全自主</li></ul><h2 id="为什么能跨平台？关键在-NET-Core-NET-5"><a href="#为什么能跨平台？关键在-NET-Core-NET-5" class="headerlink" title="为什么能跨平台？关键在 .NET Core &#x2F; .NET 5+"></a>为什么能跨平台？关键在 .NET Core &#x2F; .NET 5+</h2><p>ASP.NET Core 的基石是：</p><ul><li><strong>.NET Core</strong> (2016-2020)</li><li>统一的继任者 <strong>.NET 5&#x2F;6&#x2F;7&#x2F;8</strong> (2020.11起)</li></ul><p>这个全新的运行时环境 (.NET Runtime) 跨平台设计的核心：</p><h3 id="剥离系统依赖"><a href="#剥离系统依赖" class="headerlink" title="剥离系统依赖"></a>剥离系统依赖</h3><p>不再深度绑定 Windows API，通过 <strong>.NET BCL</strong> (基础类库) 提供统一接口，底层针对不同操作系统独立实现。</p><h3 id="开源驱动"><a href="#开源驱动" class="headerlink" title="开源驱动"></a>开源驱动</h3><ul><li>整个项目在 <strong>GitHub (.dotnet)</strong> 完全开源</li><li>由微软和社区开发者共同维护</li><li>Linux&#x2F;macOS 支持依赖社区贡献验证</li></ul><h3 id="现代化设计"><a href="#现代化设计" class="headerlink" title="现代化设计"></a>现代化设计</h3><p>从底层为高性能、模块化和云环境优化，甩掉历史包袱。</p><h2 id="跨平台的实际好处"><a href="#跨平台的实际好处" class="headerlink" title="跨平台的实际好处"></a>跨平台的实际好处</h2><ol><li><p><strong>基础设施成本与灵活性</strong></p><ul><li>摆脱 Windows Server 授权费</li><li>利用低成本 Linux 服务器资源</li><li>天然适配 Docker&#x2F;Kubernetes</li></ul></li><li><p><strong>开发团队自由</strong></p><ul><li>开发者可自由选择 Windows&#x2F;macOS&#x2F;Linux 开发机</li><li>工具链自由：VS&#x2F;VS for Mac&#x2F;VS Code&#x2F;Rider</li></ul></li><li><p><strong>技术栈统一</strong></p><ul><li>与 Node.js&#x2F;Python&#x2F;Go 等共存于 Linux 环境</li><li>运维体系标准化</li></ul></li><li><p><strong>拥抱开源生态</strong></p><ul><li>无缝集成 Linux 为主的 DevOps 流程</li><li>兼容主流云平台</li></ul></li></ol><h2 id="“开源”不是噱头，是现实"><a href="#“开源”不是噱头，是现实" class="headerlink" title="“开源”不是噱头，是现实"></a>“开源”不是噱头，是现实</h2><ul><li><strong>代码可见</strong>：所有核心代码 GitHub 公开</li><li><strong>社区决策</strong>：路线图&#x2F;重大设计在 GitHub Issues 公开讨论</li><li><strong>社区贡献</strong>：大量功能改进&#x2F;Bug修复来自社区</li><li><strong>独立治理</strong>：在 <strong>.NET 基金会</strong> 支持下运作</li></ul><h2 id="谁在用？不只是微软系"><a href="#谁在用？不只是微软系" class="headerlink" title="谁在用？不只是微软系"></a>谁在用？不只是微软系</h2><table><thead><tr><th>公司类型</th><th>代表案例</th></tr></thead><tbody><tr><td>技术社区</td><td>Stack Overflow 核心后端</td></tr><tr><td>开发工具</td><td>JetBrains Rider 后端服务</td></tr><tr><td>工业&#x2F;企业级</td><td>Siemens&#x2F;UPS&#x2F;波音</td></tr><tr><td>金融&#x2F;医疗科技</td><td>众多公司（看重性能&#x2F;安全性）</td></tr><tr><td>初创公司</td><td>看重开发效率&#x2F;部署灵活性</td></tr></tbody></table><h2 id="总结：该刷新认知了"><a href="#总结：该刷新认知了" class="headerlink" title="总结：该刷新认知了"></a>总结：该刷新认知了</h2><blockquote><p>如果对 .NET Web 开发的印象还停留在 <strong>“Windows + IIS + 闭源”</strong> 的时代，是时候更新了。</p></blockquote><p><strong>ASP.NET Core (基于 .NET 5&#x2F;6&#x2F;7&#x2F;8) 的本质：</strong></p><pre><code class="plaintext">✅ 完全开源✅ 真正跨平台 (Win/Linux/macOS)✅ 高性能模块化设计✅ 云原生/微服务优先它提供：一流的开发体验（C# 强类型 + 成熟工具链）出色的运行时性能深度融入 Linux/容器为核心的现代基础设施生态所以下次技术选型时，咱也可以考虑一下AspNetCore。</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AspNetCore </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据结构笔记</title>
       <link href="/2024/12/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/"/>
       <url>/2024/12/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/</url>
