@@ -4,11 +4,24 @@
   
     
     <entry>
-      <title>IIS+LetsEncrypt免费HTTPS部署全流程 含HTTP强制跳转</title>
+      <title>Windows服务器安装IIS详细教程（两种方法图文步骤）</title>
+      <link href="/2026/02/16/Windows-IIS%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+      <url>/2026/02/16/Windows-IIS%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style><h1 id="Windows服务器安装IIS详细教程"><a href="#Windows服务器安装IIS详细教程" class="headerlink" title="Windows服务器安装IIS详细教程"></a>Windows服务器安装IIS详细教程</h1><p>在Windows Server系统中，IIS（Internet Information Services）是微软提供的Web服务器组件。本文详细介绍Windows服务器安装IIS的两种方法，包括通过控制面板启用IIS以及通过服务器管理器添加Web服务器（IIS）角色，适用于Windows Server 2016、2019、2022系统。</p><h2 id="安装IIS的两种方式。"><a href="#安装IIS的两种方式。" class="headerlink" title="安装IIS的两种方式。"></a>安装IIS的两种方式。</h2><ol><li>服务器管理器</li><li>控制面板</li></ol><h2 id="一、通过控制面板安装IIS"><a href="#一、通过控制面板安装IIS" class="headerlink" title="一、通过控制面板安装IIS"></a>一、通过控制面板安装IIS</h2><ul><li><ol><li>打开菜单搜索-控制面板<br><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-16%20210743.png" alt="屏幕截图 2026-02-16 210743"></li></ol></li><li><ol start="2"><li>点击 控制面板 —&gt; 程序 —&gt; 程序和功能 中的 启用或关闭Windows功能<br><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-16%20210825.png" alt="屏幕截图 2026-02-16 210825"></li></ol></li><li><ol start="3"><li>点击 程序和功能中的启用或关闭Windows功能<br><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-16%20210912.png" alt="屏幕截图 2026-02-16 210912"></li></ol></li><li><ol start="4"><li>确认，然后等待安装完成。</li></ol></li></ul><hr><h2 id="二、通过服务器管理器安装IIS"><a href="#二、通过服务器管理器安装IIS" class="headerlink" title="二、通过服务器管理器安装IIS"></a>二、通过服务器管理器安装IIS</h2><ul><li><ol><li>打开菜单搜索-服务器管理器<br><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-16%20213715.png" alt="屏幕截图 2026-02-16 213715"></li></ol></li><li><ol start="2"><li>点击 服务器管理器 —&gt; 添加角色和功能<br><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-16%20213847.png" alt="屏幕截图 2026-02-16 213847"></li></ol></li><li><ol start="3"><li>进入开始之前页面，直接下一步<br><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-16%20213847.png" alt="屏幕截图 2026-02-16 213847"></li></ol></li><li><ol start="4"><li>安装类型 —&gt; 基于角色或基于功能<br><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-16%20213942.png" alt="屏幕截图 2026-02-16 213942"></li></ol></li><li><ol start="5"><li>服务器选择-默认下一步</li></ol></li><li><ol start="6"><li>服务器角色-找到Web服务器，我的建议是这个三个全部安装，因为这样很方便，管理工具和Ftp都齐全了,通过Ftp上传文件比较方便。<br><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-16%20214054.png" alt="屏幕截图 2026-02-16 214054"></li></ol></li><li><ol start="7"><li>安装。</li></ol></li></ul><hr><h2 id="三、IIS安装完成后的打开方式"><a href="#三、IIS安装完成后的打开方式" class="headerlink" title="三、IIS安装完成后的打开方式"></a>三、IIS安装完成后的打开方式</h2><ul><li><ol><li>在开始菜单中搜索 “ Windows 管理工具 ”<br><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-16%20211011.png" alt="屏幕截图 2026-02-16 211011"></li></ol></li><li><ol start="2"><li>点击-“ Windows管理工具 ” -在里面找到 Internet Information Services<br><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-16%20211144.png" alt="屏幕截图 2026-02-16 211144"></li></ol></li><li><ol start="3"><li>双击-Internet Information Services<br><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-16%20211209.png" alt="屏幕截图 2026-02-16 211209"></li></ol></li></ul><blockquote><p>注意现在的这个IIS中并没有安装URL重写模块和 .NET 托管捆绑包；URL重写模块和 .NET 托管捆绑包单出一篇文章。</p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IIS配置HTTPS教程：申请Let’s Encrypt免费SSL证书并强制HTTP跳转</title>
       <link href="/2026/02/16/IIS-LetsEncrypt%E5%85%8D%E8%B4%B9HTTPS%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B-%E5%90%ABHTTP%E5%BC%BA%E5%88%B6%E8%B7%B3%E8%BD%AC/"/>
       <url>/2026/02/16/IIS-LetsEncrypt%E5%85%8D%E8%B4%B9HTTPS%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B-%E5%90%ABHTTP%E5%BC%BA%E5%88%B6%E8%B7%B3%E8%BD%AC/</url>
       
-        <content type="html"><![CDATA[<div class="video-container">[up主专用，视频内嵌代码贴在这]</div><style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style>]]></content>
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style>]]></content>
       
       
       
