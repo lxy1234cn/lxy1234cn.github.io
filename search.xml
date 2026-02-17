@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Windows IIS配置HTTPS：Let’s Encrypt免费SSL证书安装与HTTP强制跳转</title>
+      <link href="/2026/02/17/IIS-LetsEncrypt%E5%85%8D%E8%B4%B9HTTPS%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B-%E5%90%ABHTTP%E5%BC%BA%E5%88%B6%E8%B7%B3%E8%BD%AC/"/>
+      <url>/2026/02/17/IIS-LetsEncrypt%E5%85%8D%E8%B4%B9HTTPS%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B-%E5%90%ABHTTP%E5%BC%BA%E5%88%B6%E8%B7%B3%E8%BD%AC/</url>
+      
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style><h1 id="Windows-IIS配置HTTPS教程"><a href="#Windows-IIS配置HTTPS教程" class="headerlink" title="Windows IIS配置HTTPS教程"></a>Windows IIS配置HTTPS教程</h1><p>本文详细介绍如何在<strong>Windows IIS服务器</strong>上：</p><ul><li>申请 Let’s Encrypt 免费 SSL 证书  </li><li>自动绑定到 IIS 网站  </li><li>使用 URL Rewrite 模块实现 <strong>HTTP → HTTPS</strong> 强制跳转</li></ul><p>适合单机 IIS 环境，操作简单，步骤清晰。</p><hr><h2 id="一、前提条件"><a href="#一、前提条件" class="headerlink" title="一、前提条件"></a>一、前提条件</h2><ul><li>服务器：Windows + IIS  </li><li>域名已解析到服务器公网 IP  </li><li>80 端口可访问（HTTP）  </li><li>IIS 已绑定网站和域名  </li><li>已安装 IIS URL Rewrite 模块（用于 HTTP → HTTPS 跳转）</li></ul><p>⚠️ 如果使用 CDN 或负载均衡，需要在平台上传证书或配置 HTTPS，本教程针对直连服务器单机 IIS。</p><hr><h2 id="二、准备工具"><a href="#二、准备工具" class="headerlink" title="二、准备工具"></a>二、准备工具</h2><ul><li><strong>证书颁发机构</strong>：Let’s Encrypt（免费、受信任）  </li><li><strong>Windows 自动工具</strong>：<a href="https://www.win-acme.com/">win-acme 官网</a></li></ul><p><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-17%20103608gvs.png" alt="win-acme官网截图"></p><hr><h2 id="三、申请-HTTPS-证书（单网站）"><a href="#三、申请-HTTPS-证书（单网站）" class="headerlink" title="三、申请 HTTPS 证书（单网站）"></a>三、申请 HTTPS 证书（单网站）</h2><ol><li>下载 win-acme → 解压到服务器，例如 <code>C:\win-acme</code>  </li><li>以管理员身份运行 <code>wacs.exe</code>  </li><li>选择 <strong>N → Create new certificate</strong></li></ol><p><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-17%20104004.png" alt="创建新证书"></p><ol start="4"><li>选择 <strong>Single binding of an IIS site</strong> → 选择你的站点（例如 <code>www.clipflow.top</code>）  <ul><li>注意：必须绑定正确解析的域名</li></ul></li><li>选择绑定（一般是域名） → 回车确认  </li><li>同意 Let’s Encrypt 服务条款 → 填写通知邮箱  </li><li>选择验证方式 <strong>http-01</strong>（通过 80 端口验证域名）  </li><li>选择安装方式 <strong>IIS</strong>（自动绑定证书到 443）</li></ol><p>✅ 完成后：  </p><ul><li>IIS 自动增加 <strong>443 + HTTPS 绑定</strong>  </li><li>win-acme 自动创建计划任务，证书到期前会自动续期  </li><li>浏览器访问 <code>https://www.clipflow.top</code> 应显示 🔒 小锁</li></ul><p>💡 多个网站可重复运行 <code>wacs.exe</code> 为其他网站申请证书<br>💡 同一站点绑定多个域名，可一次性申请多域名证书（SAN证书）</p><hr><h2 id="四、IIS-URL-Rewrite-强制-HTTP-→-HTTPS"><a href="#四、IIS-URL-Rewrite-强制-HTTP-→-HTTPS" class="headerlink" title="四、IIS URL Rewrite 强制 HTTP → HTTPS"></a>四、IIS URL Rewrite 强制 HTTP → HTTPS</h2><ol><li>打开 IIS 管理器 → 选择网站 → <strong>URL Rewrite → Add Rules… → Blank Rule（空白规则）</strong></li></ol><p><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-17%20104401.png" alt="URL Rewrite 空白规则"></p><ol start="2"><li>设置规则：</li></ol><ul><li><strong>Name</strong>: <code>RedirectToHTTPS</code>  </li><li><strong>Requested URL</strong>: Matches the Pattern  （与模式匹配）</li><li><strong>Using</strong>: Regular Expressions  (正则表达式)</li><li><strong>Pattern</strong>: <code>(.*)</code></li></ul><p><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-17%20104501.png" alt="匹配规则"></p><ol start="3"><li>添加条件：</li></ol><ul><li><strong>Condition input</strong>: <code>&#123;HTTPS&#125;</code>  </li><li><strong>Check if input string</strong>: Matches the Pattern  （与模式匹配）</li><li><strong>Pattern</strong>: <code>^OFF$</code></li></ul><p><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-17%20104549.png" alt="条件设置"></p><ol start="4"><li>设置操作（Action）：</li></ol><ul><li><strong>Action type</strong>: Redirect（重定向）  </li><li><strong>Redirect URL</strong>: <code>https://&#123;HTTP_HOST&#125;/&#123;R:1&#125;</code>  </li><li><strong>Redirect type</strong>: Permanent (301)</li></ul><p><img src="https://www.filepunk.top/files/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-02-17%20104641.png" alt="重定向设置"></p><p>说明：</p><ul><li><code>&#123;HTTPS&#125; = OFF</code> → 只匹配 HTTP 请求  </li><li><code>(.*) + &#123;R:1&#125;</code> → 保留原 URL 路径和参数  </li><li><code>&#123;HTTP_HOST&#125;</code> → 保留访问域名</li></ul><ol start="5"><li>点击 <strong>Apply 保存</strong>，测试访问：</li></ol><blockquote><p><a href="http://www.clipflow.top/">http://www.clipflow.top/</a></p></blockquote><p>→ 自动跳转到：</p><blockquote><p><a href="https://www.clipflow.top/">https://www.clipflow.top/</a></p></blockquote><hr><h2 id="五、维护与续期"><a href="#五、维护与续期" class="headerlink" title="五、维护与续期"></a>五、维护与续期</h2><ul><li>win-acme 已自动创建 Windows 计划任务  </li><li>证书到期前自动续期并更新 IIS  </li><li>无需人工干预</li></ul><hr><h2 id="六、注意事项-提示"><a href="#六、注意事项-提示" class="headerlink" title="六、注意事项 &amp; 提示"></a>六、注意事项 &amp; 提示</h2><ul><li>每个网站需要单独申请证书，绑定多个域名可生成 SAN 证书  </li><li>邮箱可重复使用，用于接收证书到期或异常通知  </li><li>确保 80 和 443 端口开放  </li><li>强制 HTTPS 跳转可保证访问安全，并统一网站入口</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端开发, 服务器运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IIS, HTTPS, SSL, URL Rewrite, Windows Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IIS服务器安装.NET Core托管捆绑包与URL重写模块教程</title>
       <link href="/2026/02/17/IIS%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85-NeTCore%E6%89%98%E7%AE%A1%E6%8D%86%E7%BB%91%E5%8C%85%E4%B8%8EURL%E9%87%8D%E5%86%99%E6%A8%A1%E5%9D%97%E6%95%99%E7%A8%8B/"/>
       <url>/2026/02/17/IIS%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85-NeTCore%E6%89%98%E7%AE%A1%E6%8D%86%E7%BB%91%E5%8C%85%E4%B8%8EURL%E9%87%8D%E5%86%99%E6%A8%A1%E5%9D%97%E6%95%99%E7%A8%8B/</url>
@@ -30,19 +55,6 @@
             <tag> Windows Server, IIS安装, Internet Information Services, Web服务器, 控制面板, 服务器管理器, Ftp, Windows管理工具 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>IIS配置HTTPS教程：申请Let’s Encrypt免费SSL证书并强制HTTP跳转</title>
-      <link href="/2026/02/16/IIS-LetsEncrypt%E5%85%8D%E8%B4%B9HTTPS%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B-%E5%90%ABHTTP%E5%BC%BA%E5%88%B6%E8%B7%B3%E8%BD%AC/"/>
-      <url>/2026/02/16/IIS-LetsEncrypt%E5%85%8D%E8%B4%B9HTTPS%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B-%E5%90%ABHTTP%E5%BC%BA%E5%88%B6%E8%B7%B3%E8%BD%AC/</url>
-      
-        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style>]]></content>
-      
-      
       
     </entry>
     
